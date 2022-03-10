@@ -22,6 +22,28 @@ netty:
         localAddress: 10.243.83.49
         multicastAddress: 224.0.0.15
 ```
+```java
+@Handler("myhandler1")
+public class MyHandler1 extends ChannelInitializer<NioDatagramChannel> {
+    @Override
+    protected void initChannel(NioDatagramChannel ch) throws Exception {
+        ch.pipeline().addLast(new SimpleChannelInboundHandler<DatagramPacket>() {
+            @Override
+            public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+                System.out.println(ctx.channel()+"已关闭");
+                super.channelInactive(ctx);
+            }
+
+            @Override
+            protected void channelRead0(ChannelHandlerContext ctx, DatagramPacket msg) throws Exception {
+                final ByteBuf content = msg.content();
+                final String s = content.toString(CharsetUtil.UTF_8);
+                System.out.println(s);
+            }
+        });
+    }
+}
+```
 
 
 #### 参与贡献
