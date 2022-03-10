@@ -12,7 +12,16 @@ netty springboot启动类
 
 
 #### 使用说明
-
+```yml
+netty:
+  config:
+    configurations:
+      - name: myhandler1
+        protocol: UDP_MULTICAST
+        port: 9111
+        localAddress: 10.243.83.49
+        multicastAddress: 224.0.0.15
+```
 
 
 #### 参与贡献
