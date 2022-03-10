@@ -8,6 +8,7 @@ netty springboot启动类
 
 
 #### 安装教程
+Maven坐标
 ```xml
 <dependencies>
     <dependency>
@@ -19,6 +20,7 @@ netty springboot启动类
 
 
 #### 使用说明
+**@Handler中的value和configurations中的name必须相同才能匹配上**
 ```yml
 netty:
   config:
@@ -29,6 +31,7 @@ netty:
         localAddress: 10.243.83.49
         multicastAddress: 224.0.0.15
 ```
+java代码
 ```java
 @Handler("myhandler1")
 public class MyHandler1 extends ChannelInitializer<NioDatagramChannel> {
