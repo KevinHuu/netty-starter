@@ -8,7 +8,14 @@ netty springboot启动类
 
 
 #### 安装教程
-
+```xml
+<dependencies>
+    <dependency>
+        <groupId>com.h</groupId>
+        <artifactId>netty-spring-boot-starter</artifactId>
+    </dependency>
+</dependencies>
+```
 
 
 #### 使用说明
